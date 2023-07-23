@@ -1,0 +1,14 @@
+{
+  "name": "com.cooki.references",
+  "version": "1.0.1",
+  "displayName": "References",
+  "description": "This package provides references and dependency injection handling logic.",
+  "author": {
+    "name": "\u0141ukasz D\u0105bek",
+    "email": "ukidabek@gmail.com"
+  },
+  "unity": "2021.1",
+  "dependencies": {
+    "com.cooki.utilities": "1.0.0"
+  }
+}
