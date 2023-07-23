@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Utilities.ReferenceHost
 {
+	[AddComponentMenu("Dependency Injection/InjectionManager")]
 	public class InjectionManager : MonoBehaviour
 	{
 		[SerializeField] private InjectionDictionary m_injectionDefinitionDictionary = new InjectionDictionary();

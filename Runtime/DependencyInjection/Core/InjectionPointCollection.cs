@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Utilities.ReferenceHost
 {
+	[AddComponentMenu("Dependency Injection/InjectionPointCollection")]
 	public class InjectionPointCollection : MonoBehaviour
 	{
 		[SerializeField] private List<InjectionPoint> m_injectionPoints = new List<InjectionPoint>();
