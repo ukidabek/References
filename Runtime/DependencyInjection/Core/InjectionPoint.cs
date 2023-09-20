@@ -13,12 +13,21 @@ namespace Utilities.ReferenceHost
 		[SerializeField] private string m_fieldName = string.Empty;
 		[SerializeField] private string m_injectionID = string.Empty;
 		public string InjectionID => m_injectionID;
+		
 		private string m_id = string.Empty;
 		public string ID => m_id;
-		public string FieldTypeName => m_fieldInfo.FieldType.Name;
+
+		private FieldInfo m_fieldInfo = null;
+		public string FieldTypeName
+		{
+			get
+			{
+				Initialize();
+				return m_fieldInfo.FieldType.Name;
+			}
+		}
 
 		protected IDynamicInjector m_injector = null;
-		private FieldInfo m_fieldInfo = null;
 		private const BindingFlags Binding_Flags = BindingFlags.NonPublic | BindingFlags.Instance;
 
 		public InjectionPoint(Object injectDestination, FieldInfo injectionPoint)
@@ -31,12 +40,10 @@ namespace Utilities.ReferenceHost
 
 		public void Initialize()
 		{
-			if (m_injectDestination == null)
+			if (m_fieldInfo != null || m_injectDestination == null)
 				return;
 
-			m_fieldInfo = m_injectDestination
-				.GetType()
-				.GetField(m_fieldName, Binding_Flags);
+			m_fieldInfo = m_injectDestination.GetType().GetField(m_fieldName, Binding_Flags);
 			m_id = $"{m_injectionID}_{FieldTypeName}";
 		}
 
@@ -63,7 +70,11 @@ namespace Utilities.ReferenceHost
 
 		private void Inject(Object instance) => m_fieldInfo.SetValue(m_injectDestination, instance);
 
-		public void Clear() => m_fieldInfo.SetValue(m_injectDestination, null);
+		public void Clear()
+		{
+			Initialize();
+			m_fieldInfo.SetValue(m_injectDestination, null);
+		}
 
 		public void OnBeforeSerialize() { }
 

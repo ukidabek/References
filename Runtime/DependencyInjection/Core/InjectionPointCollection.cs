@@ -17,20 +17,5 @@ namespace Utilities.ReferenceHost
 			foreach (InjectionPoint point in m_injectionPoints)
 				point.Inject(m_injectionDefinitionDictionary);
 		}
-
-		[ContextMenu("Get Injection Points")]
-		public void GetInjectionPoints() => m_injectionPoints.GatherInjectionPoints(gameObject);
-
-		[ContextMenu("Clear references")]
-		public void ClearReferences()
-		{
-			foreach (InjectionPoint point in m_injectionPoints)
-				point.Clear();
-#if UNITY_EDITOR
-			UnityEditor.EditorUtility.SetDirty(transform.root.gameObject);
-#endif
-		}
-
-		private void Reset() => GetInjectionPoints();
 	}
 }

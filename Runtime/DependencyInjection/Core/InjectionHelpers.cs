@@ -9,7 +9,7 @@ namespace Utilities.ReferenceHost
 	{
 		private const BindingFlags Binding_Flags = BindingFlags.NonPublic | BindingFlags.Instance;
 
-		public static void GatherInjectionPoints(this List<InjectionPoint> injectionPoints, GameObject gameObject)
+		public static void GatherInjectionPoints(this IList<InjectionPoint> injectionPoints, GameObject gameObject)
 		{
 			injectionPoints.Clear();
 			var components = gameObject.GetComponentsInChildren<Component>();
@@ -24,6 +24,12 @@ namespace Utilities.ReferenceHost
 				foreach (var field in fields)
 					injectionPoints.Add(new InjectionPoint(component, field));
 			}
+		}
+
+		public static void ClearInjectionPoints(this IEnumerable<InjectionPoint> injectionPoints)
+		{
+			foreach (var point in injectionPoints)
+				point.Clear();
 		}
 	}
 }
