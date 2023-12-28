@@ -1,18 +1,17 @@
 using System;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace Utilities.ReferenceHost
 {
-	public abstract class ReferenceHost<T> : ScriptableObject where T : Object
+    public abstract class ReferenceHost<T> : ScriptableObject
 	{
-		public T Instance {get; private set;}
+		[field: SerializeField] public T Instance { get; private set; }
 
-        public event Action OnReferenceChanged = null;
+		public event Action OnReferenceChanged = null;
 
 		internal void SetReference(T reference)
 		{
-			if(Instance == reference) return;
+			if(ReferenceEquals(Instance, reference)) return;
 			Instance = reference;
 			OnReferenceChanged?.Invoke();
 		}

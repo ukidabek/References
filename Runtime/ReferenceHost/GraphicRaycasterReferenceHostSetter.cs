@@ -4,7 +4,7 @@ using UnityEngine.UI;
 namespace Utilities.ReferenceHost
 {
 	[AddComponentMenu("References/GraphicRaycaster/GraphicRaycasterReferenceHostSetter")]
-	public class GraphicRaycasterReferenceHostSetter : ReferenceHostSetter<GraphicRaycastereReferenceHost, GraphicRaycaster>
+	public class GraphicRaycasterReferenceHostSetter : SimpleReferenceHostSetter<GraphicRaycastereReferenceHost, GraphicRaycaster>
 	{
 	}
 }

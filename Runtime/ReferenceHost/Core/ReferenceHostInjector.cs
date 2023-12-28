@@ -12,7 +12,7 @@ namespace Utilities.ReferenceHost
 	{
         [SerializeField] private Object[] m_injectionObjects = null;
 		[SerializeField] private ReferenceHostType m_reference = null;
-
+		
         private List<KeyValuePair<Object, MemberInfo>> m_fieldInfo = new List<KeyValuePair<Object, MemberInfo>>();
         private const BindingFlags bindingFlags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public;
 
