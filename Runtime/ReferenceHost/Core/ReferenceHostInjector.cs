@@ -7,7 +7,7 @@ using Object = UnityEngine.Object;
 namespace Utilities.ReferenceHost
 {
 	public abstract class ReferenceHostInjector<ReferenceHostType, Type, InjectionType> : MonoBehaviour
-		where ReferenceHostType : ReferenceHost<Type>
+		where ReferenceHostType : ReferenceHost<InjectionType>
 		where Type : Object
 	{
         [SerializeField] private Object[] m_injectionObjects = null;
