@@ -2,7 +2,7 @@
 
 namespace Utilities.ReferenceHost
 {
-	[CreateAssetMenu(fileName = "GameObjectReferenceHost", menuName = "ReferenceHost/GameObjectReferenceHost")]
+    [CreateAssetMenu(fileName = "GameObjectReferenceHost", menuName = "ReferenceHost/GameObjectReferenceHost")]
 	public class GameObjectReferenceHost : ReferenceHost<GameObject>
 	{
 	}

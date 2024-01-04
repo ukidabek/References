@@ -2,7 +2,7 @@
 
 namespace Utilities.ReferenceHost
 {
-	[AddComponentMenu("References/GameObject/GameObjectReferenceHostSetter")]
+    [AddComponentMenu("References/GameObject/GameObjectReferenceHostSetter")]
 	public class GameObjectReferenceHostSetter : SimpleReferenceHostSetter<GameObjectReferenceHost, GameObject>
 	{ 
 	}
